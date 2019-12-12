@@ -36,7 +36,7 @@ void count(int T)
     }
 }
 
-void elem(int T,my_text* first)
+void elem(int T,my_text* first,string str)
 {
     int i,j,c;
     int a=1;
@@ -55,7 +55,7 @@ void elem(int T,my_text* first)
             {
                 first->str[i];
                 i++;
-                str[i]=c;
+                str[j]=c;
             }
           }
         }
