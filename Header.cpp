@@ -1,12 +1,14 @@
 #include "Header.h"
 
-void input(my_text* first,int T)
+void input(my_text* first)
 {
+    int T;
     first = new my_text;
      while(T!=0)
     {
       if(T>1)
       {
+    cout<<"Введите первую строку:"<<" ";
     cin>>first->str; //первая строка
     first->next=new my_text; //след строка = новой строке
     first=first->next; //текущая строка(первая) = след строке(которая новая уже)
@@ -30,6 +32,7 @@ void output(my_text* first)
 
 void count(int T)
 {
+    cout<<"Количество рядков:"<<" ";
     while(T>0)
     {
         cout<<T;
@@ -40,7 +43,9 @@ void elem(int T,my_text* first,string str)
 {
     int i,j,c;
     int a=1;
+    cout<<"Введите номер рядка:"<<" ";
     cin>>i;//номер рядка
+    cout<<"Введите букву:"<<" ";
     cin>>j;
     cout<<"Введите символ:"<<" ";
     cin>>c;
@@ -65,8 +70,11 @@ void transpotion(my_text* first)
     my_text* two = first;
     int j,i,n=1,m=1;
     string k;
+    cout<<"Введите номер рядка1:"<<" ";
     cin>>i;
+    cout<<"Введите номер рядка2:"<<" ";
     cin>>j;
+    
     while(m!=i)
     {
         two=two->next;
@@ -86,7 +94,9 @@ void change(my_text* first)
     my_text* two = first;
     int i,j,n=1,m=1;
     string k;
+    cout<<"Введите номер рядка1:"<<" ";
     cin>>i;
+    cout<<"Введите номер рядка2:"<<" ";
     cin>>j;
     while(m!=i)
     {
@@ -105,26 +115,33 @@ void change(my_text* first)
 
 void enter(int T)
 {
+    cout<<"Введите количество рядков:"<<" ";
     cin>>T;
     cout<<T;
 }
 void vvod()
 {
+    cout<<"Введите количество рядков:"<<" ";
     cin>>T;
     ifstream input ("vvod.txt");
-    FILE * ptrFile = fopen("vvod.txt, "#");
-       char mystring [T];
-     
-       if (ptrFile == NULL) perror("Ошибка открытия файла");
-       else
-       {
-           if ( fgets(mystring, 100 , ptrFile) != NULL ) // считать символы из файла
-           {
-               puts(mystring);  // вывод на экран
-           }
-         fclose (ptrFile);
+    FILE * pFile;
+    int c;
+    int n = 0;
+    pFile=fopen ("vvod.txt","r");
+    if (pFile==NULL) perror ("Error opening file");
+    else
+    {
+      do
+      {
+        c = fgetc (pFile);
+        if (c == '#')
+            break;
+      }
+        while (c != EOF);
+      fclose (pFile);
+      printf ("The file contains %d dollar sign characters ($).\n",n);
+    }
        }
 while()
 first=first->next;
 }
-
